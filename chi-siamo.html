@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Siamo - La Vela Ristorante | 60 Anni di Tradizione Pugliese a Torre a Mare, Bari</title>
+    <meta name="description" content="Scopri la storia di La Vela: dal 1960 la famiglia Ficarella porta avanti la tradizione culinaria pugliese nel loro ristorante sul mare a Torre a Mare, Bari.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Chi Siamo - La Vela Ristorante | 60 Anni di Tradizione Pugliese">
+    <meta property="og:description" content="Fondato nel 1960 da Luigi Ficarella, La Vela è gestito oggi dai figli Domenico e Giuseppe. Una storia di tradizione e passione per la cucina pugliese.">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chi Siamo - La Vela Ristorante | 60 Anni di Tradizione Pugliese">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "La Vela Ristorante",
+      "description": "Ristorante pizzeria pugliese di pesce con tradizione familiare dal 1960",
+      "foundingDate": "1960",
+      "founder": {
+        "@type": "Person",
+        "name": "Luigi Ficarella"
+      },
+      "servesCuisine": ["Italian", "Seafood", "Pizza", "Pugliese"],
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bari",
+        "addressRegion": "Puglia",
+        "addressCountry": "IT"
+      },
+      "telephone": "+39 080 5430873",
+      "email": "info@lavelabari.it",
+      "sameAs": [
+        "https://www.facebook.com/lavelabari/",
+        "https://www.instagram.com/ristorantelavelabari/"
+      ]
+    }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap">
+    
+    <style>
+        :root {
+            /* Palette */
+            --colore-primario: #1e3a8a;
+            --colore-secondario: #0369a1;
+            --colore-accento: #dc2626;
+            --colore-sfondo: #f8fafc;
+            --colore-sfondo-secondario: #e2e8f0;
+            --colore-testo: #1e293b;
+            --colore-testo-chiaro: #64748b;
+            --colore-bordi: #cbd5e1;
+
+            /* Tipografia */
+            --font-titoli: 'Playfair Display', serif;
+            --font-testo: 'Inter', sans-serif;
+
+            /* Layout */
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            --box-shadow: 0 4px 20px rgba(30, 58, 138, 0.12);
+            --box-shadow-hover: 0 12px 40px rgba(30, 58, 138, 0.2);
+            --transizione: all 0.3s ease;
+
+            /* Spaziatura */
+            --spazio-xs: 0.5rem;
+            --spazio-sm: 1rem;
+            --spazio-md: 2rem;
+            --spazio-lg: 4rem;
+            --spazio-xl: 8rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-testo);
+            line-height: 1.6;
+            color: var(--colore-testo);
+            background-color: var(--colore-sfondo);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: var(--spazio-sm) 0;
+            transition: var(--transizione);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 var(--spazio-sm);
+        }
+
+        .logo {
+            font-family: var(--font-titoli);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spazio-md);
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transizione);
+        }
+
+        .nav-menu a:hover {
+            color: var(--colore-accento);
+        }
+
+        .prenota-btn {
+            background: var(--colore-accento);
+            color: white;
+            padding: var(--spazio-xs) var(--spazio-sm);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transizione);
+        }
+
+        .prenota-btn:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(30, 58, 138, 0.7), rgba(3, 105, 161, 0.7)), 
+                        url('https://lirp.cdn-website.com/6981b9de/dms3rep/multi/opt/PHOTO-2019-04-29-19-55-44+%283%29-f2ba1b67-1920w.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-titoli);
+            font-size: 3rem;
+            margin-bottom: var(--spazio-sm);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spazio-xl) var(--spazio-sm);
+        }
+
+        .section {
+            margin-bottom: var(--spazio-xl);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transizione);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-family: var(--font-titoli);
+            font-size: 2.5rem;
+            color: var(--colore-primario);
+            margin-bottom: var(--spazio-md);
+            text-align: center;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spazio-lg);
+            align-items: center;
+            margin-bottom: var(--spazio-lg);
+        }
+
+        .content-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .content-text h3 {
+            font-family: var(--font-titoli);
+            font-size: 1.8rem;
+            color: var(--colore-secondario);
+            margin-bottom: var(--spazio-sm);
+        }
+
+        .content-image {
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .content-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transizione);
+        }
+
+        .content-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: var(--spazio-md) 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--colore-primario);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: var(--spazio-md);
+            margin-bottom: var(--spazio-md);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: var(--spazio-lg);
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: var(--spazio-lg);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--colore-accento);
+            border-radius: 50%;
+            top: var(--spazio-md);
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -10px;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: var(--spazio-md);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .timeline-year {
+            font-family: var(--font-titoli);
+            font-size: 1.5rem;
+            color: var(--colore-primario);
+            font-weight: 700;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spazio-md);
+            margin-top: var(--spazio-lg);
+        }
+
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transizione);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* Testimonial */
+        .testimonial {
+            background: white;
+            padding: var(--spazio-lg);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            margin: var(--spazio-lg) 0;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--colore-testo-chiaro);
+            margin-bottom: var(--spazio-sm);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--colore-primario);
+            color: white;
+            padding: var(--spazio-lg) 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spazio-sm);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spazio-md);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-titoli);
+            margin-bottom: var(--spazio-sm);
+        }
+
+        .footer-section p, .footer-section a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-bottom: var(--spazio-xs);
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spazio-sm);
+            margin-top: var(--spazio-sm);
+        }
+
+        .social-links a {
+            background: var(--colore-accento);
+            color: white;
+            padding: var(--spazio-xs);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transizione);
+        }
+
+        .social-links a:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--colore-primario);
+                flex-direction: column;
+                padding: var(--spazio-md);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transizione);
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spazio-md);
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 60px !important;
+                padding-right: var(--spazio-md) !important;
+            }
+
+            .timeline-item::before {
+                left: 10px !important;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 50vh;
+            }
+
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .main-content {
+                padding: var(--spazio-md) var(--spazio-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">La Vela</a>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                    <li><a href="contatti.html">Contatti</a></li>
+                    <li><a href="prenota.html" class="prenota-btn">Prenota ora</a></li>
+                </ul>
+                <button class="menu-toggle" id="menuToggle">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>La Nostra Storia</h1>
+            <p>Dal 1960, la tradizione pugliese si tuffa nel blu di Torre a Mare</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Storia Section -->
+        <section class="section" id="storia">
+            <h2 class="section-title">60 Anni di Tradizione</h2>
+            <div class="content-grid">
+                <div class="content-text">
+                    <h3>La Vela: Un'Esperienza Indimenticabile</h3>
+                    <p>La Vela è un fantastico ristorante sul mare a Bari gestito dalla Famiglia Ficarella: l'esperienza, la cordialità e la loro maestria rendono la sosta presso il ristorante pugliese... Indimenticabile!</p>
+                    <p>Possiamo considerare oggi la Famiglia Ficarella un vero punto di riferimento nel campo della ristorazione a Bari e provincia, con una tradizione che si tramanda di generazione in generazione.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://lirp.cdn-website.com/6981b9de/dms3rep/multi/opt/PHOTO-2019-04-29-19-55-43+%282%29-c350277d-1920w.jpg" alt="Esterno del ristorante La Vela" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section class="section" id="timeline">
+            <h2 class="section-title">La Nostra Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1960</div>
+                        <h3>La Fondazione</h3>
+                        <p>Luigi Ficarella fonda lo storico Ristorante Pizzeria "La Vela", un concreto esempio sin dagli anni sessanta di affidabilità e di qualità.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">Oggi</div>
+                        <h3>La Continuità</h3>
+                        <p>Attualmente lo storico ristorante pizzeria sul mare a Bari è gestito dai figli Domenico e Giuseppe che, con passione e dedizione, seguono le orme del papà "Gino".</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fondatore Section -->
+        <section class="section" id="fondatore">
+            <div class="content-grid">
+                <div class="content-image">
+                    <img src="https://lirp.cdn-website.com/6981b9de/dms3rep/multi/opt/PHOTO-2019-04-29-19-55-43-790e1240-1920w.jpg" alt="Interno del ristorante La Vela" loading="lazy">
+                </div>
+                <div class="content-text">
+                    <h3>Luigi Ficarella: Il Fondatore</h3>
+                    <p>Luigi Ficarella, è stato il fondatore dello storico Ristorante Pizzeria "La Vela", un concreto esempio sin dagli anni sessanta di affidabilità e di qualità.</p>
+                    <p>La sua visione di creare un luogo dove la tradizione pugliese potesse incontrare la freschezza del mare ha dato vita a quello che oggi è considerato un punto di riferimento nella ristorazione barese.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gestione Attuale Section -->
+        <section class="section" id="gestione-attuale">
+            <h2 class="section-title">La Famiglia Oggi</h2>
+            <div class="content-grid">
+                <div class="content-text">
+                    <h3>Domenico e Giuseppe: La Nuova Generazione</h3>
+                    <p>Il successo del famoso ristorante di pesce a Torre a Mare è ottenuto grazie agli insegnamenti tramandati dallo storico fondatore del locale e, diciamolo, anche grazie alla bravura dei suoi figli!</p>
+                    <p>Con passione e dedizione, Domenico e Giuseppe continuano a portare avanti i valori e le tradizioni che hanno reso La Vela un'istituzione nel panorama gastronomico pugliese.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://lirp.cdn-website.com/6981b9de/dms3rep/multi/opt/PHOTO-2019-04-29-19-55-41-2117w.jpg" alt="Tavoli del ristorante con vista mare" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonianza -->
+        <section class="section" id="testimonianza">
+            <div class="testimonial">
+                <p class="testimonial-text">"Esperienza da ripetere. Un sabato pugliese, con amici storici in una location curatissima, con cibo eccellente. Abbiamo degustato crudo e primi piatti."</p>
+                <p><strong>- Cliente soddisfatto</strong></p>
+            </div>
+        </section>
+
+        <!-- Tradizione Section -->
+        <section class="section" id="tradizione">
+            <h2 class="section-title">La Nostra Tradizione</h2>
+            <div class="content-text" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p>Il ristorante a Bari di pesce e altre prelibatezze della tradizione pugliese è aperto tutti i giorni sia a pranzo che a cena, tranne il martedì. La nostra cucina rappresenta l'autenticità della tradizione culinaria pugliese, dove ogni piatto racconta una storia di passione e dedizione.</p>
+                <p>Dalla freschezza del pesce del nostro mare alle specialità della tradizione locale, ogni portata è preparata con ingredienti genuini e tecniche tramandate nel tempo.</p>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="section" id="gallery">
+            <h2 class="section-title">Il Nostro Ristorante</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://lirp.cdn-website.com/6981b9de/dms3rep/multi/opt/PHOTO-2019-04-29-19-55-42+%281%29-6f77c173-2117w.jpg" alt="Sala interna del ristorante" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lirp.cdn-website.com/6981b9de/dms3rep/multi/opt/PHOTO-2019-04-29-19-55-40-a1787bfa-2117w.jpg" alt="Terrazza vista mare" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lirp.cdn-website.com/6981b9de/dms3rep/multi/opt/PHOTO-2019-04-29-19-55-47-2117w.jpg" alt="Ambiente accogliente del locale" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lirp.cdn-website.com/6981b9de/dms3rep/multi/opt/PHOTO-2019-04-29-19-55-45-2117w.jpg" alt="Dettaglio della sala" loading="lazy">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>La Vela Ristorante</h3>
+                <p>Dal 1960 la tradizione pugliese</p>
+                <p>Torre a Mare, Bari</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/lavelabari/" target="_blank" rel="noopener">f</a>
+                    <a href="https://www.instagram.com/ristorantelavelabari/" target="_blank" rel="noopener">📷</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contatti</h3>
+                <a href="tel:+390805430873">+39 080 5430873</a>
+                <a href="mailto:info@lavelabari.it">info@lavelabari.it</a>
+                <p>Torre a Mare, Bari</p>
+            </div>
+            <div class="footer-section">
+                <h3>Orari</h3>
+                <p>Aperto tutti i giorni</p>
+                <p>Pranzo e Cena</p>
+                <p>Chiuso il Martedì</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 58, 138, 0.98)';
+            } else {
+                header.style.background = 'rgba(30, 58, 138, 0.95)';
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
