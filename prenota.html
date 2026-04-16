@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prenota un Tavolo - La Vela Ristorante | Ristorante Pizzeria sul Mare a Torre a Mare, Bari</title>
+    
+    <meta name="description" content="Prenota un tavolo al Ristorante La Vela a Torre a Mare, Bari. Dal 1960 cucina pugliese tradizionale e specialità di pesce fresco vista mare. Chiama ora!">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Prenota un Tavolo - La Vela Ristorante | Ristorante Pizzeria sul Mare a Bari">
+    <meta property="og:description" content="Prenota un tavolo al Ristorante La Vela a Torre a Mare, Bari. Dal 1960 cucina pugliese tradizionale e specialità di pesce fresco vista mare.">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prenota un Tavolo - La Vela Ristorante | Ristorante Pizzeria sul Mare a Bari">
+    <meta name="twitter:description" content="Prenota un tavolo al Ristorante La Vela a Torre a Mare, Bari. Dal 1960 cucina pugliese tradizionale e specialità di pesce fresco vista mare.">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "La Vela Ristorante",
+        "description": "Ristorante pizzeria pugliese di pesce dal 1960",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Torre a Mare",
+            "addressLocality": "Bari",
+            "addressRegion": "Puglia",
+            "addressCountry": "IT"
+        },
+        "telephone": "+39 080 5430873",
+        "email": "info@lavelabari.it",
+        "url": "https://www.ristorantelavelabari.com",
+        "foundingDate": "1960",
+        "servesCuisine": ["Cucina pugliese", "Pesce", "Pizza"],
+        "priceRange": "$$",
+        "sameAs": [
+            "https://www.facebook.com/lavelabari/",
+            "https://www.instagram.com/ristorantelavelabari/"
+        ]
+    }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap">
+    
+    <style>
+        :root {
+            /* Palette */
+            --colore-primario: #1e3a8a;
+            --colore-secondario: #0369a1;
+            --colore-accento: #dc2626;
+            --colore-sfondo: #f8fafc;
+            --colore-sfondo-secondario: #e2e8f0;
+            --colore-testo: #1e293b;
+            --colore-testo-chiaro: #64748b;
+            --colore-bordi: #cbd5e1;
+
+            /* Tipografia */
+            --font-titoli: 'Playfair Display', serif;
+            --font-testo: 'Inter', sans-serif;
+
+            /* Layout */
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            --box-shadow: 0 4px 20px rgba(30, 58, 138, 0.12);
+            --box-shadow-hover: 0 12px 40px rgba(30, 58, 138, 0.2);
+            --transizione: all 0.3s ease;
+
+            /* Spaziatura */
+            --spazio-xs: 0.5rem;
+            --spazio-sm: 1rem;
+            --spazio-md: 2rem;
+            --spazio-lg: 4rem;
+            --spazio-xl: 8rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-testo);
+            line-height: 1.6;
+            color: var(--colore-testo);
+            background-color: var(--colore-sfondo);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--colore-bordi);
+            z-index: 1000;
+            padding: var(--spazio-sm) 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 var(--spazio-md);
+        }
+
+        .logo {
+            font-family: var(--font-titoli);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--colore-primario);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spazio-md);
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--colore-testo);
+            font-weight: 600;
+            transition: var(--transizione);
+        }
+
+        .nav-link:hover {
+            color: var(--colore-primario);
+        }
+
+        .btn-prenota-header {
+            background: linear-gradient(135deg, var(--colore-primario), var(--colore-secondario));
+            color: white;
+            padding: var(--spazio-xs) var(--spazio-sm);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transizione);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-prenota-header:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: var(--spazio-xs);
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--colore-primario);
+            margin: 3px 0;
+            transition: var(--transizione);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spazio-md);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--colore-primario) 0%, var(--colore-secondario) 100%);
+            color: white;
+            text-align: center;
+            padding: var(--spazio-xl) 0;
+        }
+
+        .hero h1 {
+            font-family: var(--font-titoli);
+            font-size: 3rem;
+            margin-bottom: var(--spazio-sm);
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: var(--spazio-md);
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: var(--spazio-xl) 0;
+            background: white;
+        }
+
+        .form-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spazio-lg);
+            align-items: start;
+        }
+
+        .form-content h2 {
+            font-family: var(--font-titoli);
+            font-size: 2.5rem;
+            color: var(--colore-primario);
+            margin-bottom: var(--spazio-md);
+        }
+
+        .form-content p {
+            font-size: 1.1rem;
+            color: var(--colore-testo-chiaro);
+            margin-bottom: var(--spazio-md);
+        }
+
+        .contact-info {
+            background: var(--colore-sfondo);
+            padding: var(--spazio-md);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spazio-md);
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-titoli);
+            color: var(--colore-primario);
+            margin-bottom: var(--spazio-sm);
+        }
+
+        .phone-number {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--colore-accento);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: var(--spazio-sm);
+        }
+
+        .phone-number:hover {
+            color: var(--colore-primario);
+        }
+
+        .reservation-form {
+            background: var(--colore-sfondo);
+            padding: var(--spazio-md);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-group {
+            margin-bottom: var(--spazio-md);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spazio-xs);
+            font-weight: 600;
+            color: var(--colore-testo);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--spazio-sm);
+            border: 2px solid var(--colore-bordi);
+            border-radius: var(--border-radius);
+            font-family: var(--font-testo);
+            font-size: 1rem;
+            transition: var(--transizione);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--colore-primario);
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spazio-sm);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--colore-primario), var(--colore-secondario));
+            color: white;
+            padding: var(--spazio-sm) var(--spazio-md);
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transizione);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        /* Hours Section */
+        .hours-section {
+            padding: var(--spazio-xl) 0;
+            background: var(--colore-sfondo-secondario);
+        }
+
+        .hours-content {
+            text-align: center;
+        }
+
+        .hours-content h2 {
+            font-family: var(--font-titoli);
+            font-size: 2.5rem;
+            color: var(--colore-primario);
+            margin-bottom: var(--spazio-md);
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spazio-md);
+            margin-top: var(--spazio-lg);
+        }
+
+        .hours-card {
+            background: white;
+            padding: var(--spazio-md);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+
+        .hours-card h3 {
+            font-family: var(--font-titoli);
+            color: var(--colore-primario);
+            margin-bottom: var(--spazio-sm);
+        }
+
+        .hours-placeholder {
+            color: var(--colore-testo-chiaro);
+            font-style: italic;
+            padding: var(--spazio-md);
+            background: var(--colore-sfondo);
+            border-radius: var(--border-radius);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--colore-primario);
+            color: white;
+            padding: var(--spazio-lg) 0 var(--spazio-md);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spazio-lg);
+            margin-bottom: var(--spazio-md);
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-titoli);
+            margin-bottom: var(--spazio-sm);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            margin-bottom: var(--spazio-xs);
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spazio-sm);
+            margin-top: var(--spazio-sm);
+        }
+
+        .social-links a {
+            display: inline-block;
+            padding: var(--spazio-xs);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            transition: var(--transizione);
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spazio-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(248, 250, 252, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: var(--spazio-lg);
+                transition: var(--transizione);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: var(--spazio-sm) 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .form-container {
+                grid-template-columns: 1fr;
+                gap: var(--spazio-md);
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                padding: 0 var(--spazio-sm);
+            }
+
+            .container {
+                padding: 0 var(--spazio-sm);
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .form-container {
+                gap: var(--spazio-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">La Vela Ristorante</a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="menu.html" class="nav-link">Menu</a></li>
+                <li><a href="chi-siamo.html" class="nav-link">Chi Siamo</a></li>
+                <li><a href="prenota.html" class="nav-link">Prenota</a></li>
+                <li><a href="contatti.html" class="nav-link">Contatti</a></li>
+                <li><a href="prenota.html" class="btn-prenota-header">Prenota ora</a></li>
+            </ul>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Prenota il tuo tavolo vista mare</h1>
+                <p>Dal 1960, la tradizione pugliese si tuffa nel blu di Torre a Mare</p>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="container">
+                <div class="form-container fade-in">
+                    <div class="form-content">
+                        <h2>Prenota subito un tavolo al Ristorante "La Vela"</h2>
+                        <p>Prenota subito un tavolo e scopri la nostra splendida location per apprezzare ancora di più la cucina pugliese!</p>
+                        
+                        <div class="contact-info">
+                            <h3>Chiamate ora per riservare il vostro tavolo</h3>
+                            <a href="tel:+390805430873" class="phone-number">+39 080 5430873</a>
+                            <p>Un simbolo della gastronomia pugliese declinata nella migliore delle sue sfaccettature. Il ristorante all'aperto a Bari è situato a pochi passi dal mare, caratteristica che rende gli spazi incredibilmente affascinanti e accoglienti.</p>
+                        </div>
+                        
+                        <p>Il locale rappresenta il luogo ideale per tutti i buongustai, desiderosi di assaporare delizie della tradizione pugliese, ma anche pizze gustose e piatti a base di pesce freschissimo.</p>
+                    </div>
+                    
+                    <form class="reservation-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="nome">Nome e Cognome *</label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Telefono *</label>
+                                <input type="tel" id="telefono" name="telefono" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="data">Data *</label>
+                                <input type="date" id="data" name="data" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="orario">Orario *</label>
+                                <select id="orario" name="orario" required>
+                                    <option value="">Seleziona orario</option>
+                                    <option value="19:00">19:00</option>
+                                    <option value="19:30">19:30</option>
+                                    <option value="20:00">20:00</option>
+                                    <option value="20:30">20:30</option>
+                                    <option value="21:00">21:00</option>
+                                    <option value="21:30">21:30</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="persone">Numero di persone *</label>
+                            <select id="persone" name="persone" required>
+                                <option value="">Seleziona</option>
+                                <option value="1">1 persona</option>
+                                <option value="2">2 persone</option>
+                                <option value="3">3 persone</option>
+                                <option value="4">4 persone</option>
+                                <option value="5">5 persone</option>
+                                <option value="6">6 persone</option>
+                                <option value="7">7 persone</option>
+                                <option value="8">8 persone</option>
+                                <option value="più di 8">Più di 8 persone</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="note">Note aggiuntive</label>
+                            <textarea id="note" name="note" rows="4" placeholder="Eventuali allergie, richieste speciali, occasioni particolari..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">Invia Prenotazione</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="hours-section">
+            <div class="container">
+                <div class="hours-content fade-in">
+                    <h2>Orari di apertura</h2>
+                    <div class="hours-grid">
+                        <div class="hours-card">
+                            <h3>Pranzo</h3>
+                            <div class="hours-placeholder">[INSERIRE ORARI PRANZO]</div>
+                        </div>
+                        <div class="hours-card">
+                            <h3>Cena</h3>
+                            <div class="hours-placeholder">[INSERIRE ORARI CENA]</div>
+                        </div>
+                        <div class="hours-card">
+                            <h3>Giorni di chiusura</h3>
+                            <div class="hours-placeholder">[INSERIRE GIORNI DI CHIUSURA]</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>La Vela Ristorante</h3>
+                    <p>Dal 1960, tradizione e qualità pugliese nel cuore di Torre a Mare</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/lavelabari/" target="_blank" rel="noopener">Facebook</a>
+                        <a href="https://www.instagram.com/ristorantelavelabari/" target="_blank" rel="noopener">Instagram</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contatti</h3>
+                    <p>Torre a Mare, Bari</p>
+                    <p><a href="tel:+390805430873">+39 080 5430873</a></p>
+                    <p><a href="mailto:info@lavelabari.it">info@lavelabari.it</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Specialità</h3>
+                    <p>Cucina pugliese tradizionale</p>
+                    <p>Specialità di pesce fresco</p>
+                    <p>Pizza napoletana</p>
+                    <p>Location vista mare</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 La Vela Ristorante. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        }));
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form validation and submission
+        const form = document.querySelector('.reservation-form');
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('data').setAttribute('min', today);
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            
+            // Basic validation
+            if (!data.nome || !data.telefono || !data.data || !data.orario || !data.persone) {
+                alert('Per favore, compila tutti i campi obbligatori.');
+                return;
+            }
+            
+            // Here you would typically send the data to your server
+            alert('Grazie per la prenotazione! Ti contatteremo presto per confermare.');
+            form.reset();
+        });
+
+        // Phone number formatting
+        const phoneInput = document.getElementById('telefono');
+        phoneInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 0) {
+                if (value.startsWith('39')) {
+                    value = '+39 ' + value.slice(2);
+                } else if (!value.startsWith('+39')) {
+                    value = '+39 ' + value;
+                }
+            }
+            e.target.value = value;
+        });
+    </script>
+</body>
+</html>
